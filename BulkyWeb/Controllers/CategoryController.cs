@@ -53,11 +53,17 @@ namespace BulkyWeb.Controllers
             }
             return View(categoryFromDb);
         }
-        // Edit category action logic
-        [HttpPost]
-        public IActionResult Edit()
-        {
-            return View();
-        }
+        //Edit category action logic
+        //[HttpPost]
+        //public IActionResult Edit(Category obj)
+        //{
+        //    if(ModelState.IsValid)
+        //    {
+        //        _db.Categories.Update(obj);
+        //        _db.SaveChanges();
+        //        return RedirectToAction("Index, Category");
+        //    }
+        //    return View();
+        //}
     }
 }
