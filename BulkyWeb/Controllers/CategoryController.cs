@@ -38,5 +38,26 @@ namespace BulkyWeb.Controllers
             }
             return View();
         }
+
+        // Get edit view
+        public IActionResult Edit(int? id)
+        {
+            if(id == null || id == 0)
+            {
+                return NotFound();
+            }
+            Category? categoryFromDb = _db.Categories.Find(id);
+            if(categoryFromDb == null)
+            {
+                return NotFound();
+            }
+            return View(categoryFromDb);
+        }
+        // Edit category action logic
+        [HttpPost]
+        public IActionResult Edit()
+        {
+            return View();
+        }
     }
 }
