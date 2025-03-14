@@ -1,9 +1,9 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using BulkyWeb;
 using Bulky.Models;
 
-namespace BulkyWeb.Controllers;
+namespace BulkyWeb.Areas.Customer.Controllers;
+[Area("Customer")]
 
 public class HomeController : Controller
 {
