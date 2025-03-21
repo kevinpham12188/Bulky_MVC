@@ -108,13 +108,14 @@ namespace BulkyWeb.Areas.Admin.Controllers
         }
 
     #region API CALLS
-    [HttpGet]
+        [HttpGet]
         public IActionResult GetAll()
         {
             List<Product> objProductList = _unitOfWork.Product.GetAll(includeProperties: "Category").ToList();
             return Json(new { data = objProductList });
         }
 
+        [HttpDelete]
         public IActionResult Delete(int? id)
         {
             var productToBeDeleted = _unitOfWork.Product.Get(u => u.Id == id);
