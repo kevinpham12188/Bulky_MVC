@@ -58,6 +58,7 @@ public class HomeController : Controller
             // Add card record
             _unitOfWork.ShoppingCart.Add(shoppingCart);
         }
+        TempData["success"] = "Cart updated successfully";
         _unitOfWork.Save();
         return RedirectToAction(nameof(Index));
     }
