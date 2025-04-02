@@ -24,6 +24,12 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        var claimsIdentity = (ClaimsIdentity)User.Identity;
+        var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+        if(claim != null) {
+            HttpContext.Session.SetInt32(SD.SessionCart,
+            _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == claim.Value).Count());
+        }
         IEnumerable<Product> productList = _unitOfWork.Product.GetAll(includeProperties: "Category");
         return View(productList);
     }
