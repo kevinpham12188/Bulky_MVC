@@ -64,7 +64,7 @@ namespace BulkyWeb.Areas.Admin.Controllers
                 objFromDb.LockoutEnd = DateTime.Now.AddYears(1000);
             }
             _db.SaveChanges();
-            return Json(new { success = true, message = "Delete Successful" });
+            return Json(new { success = true, message = "Operation Successful" });
         }
         #endregion
     }
